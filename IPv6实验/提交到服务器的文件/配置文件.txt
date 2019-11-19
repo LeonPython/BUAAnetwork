@@ -1,0 +1,718 @@
+
+<S1>
+<S1>dis cu
+#
+ version 5.20, Release 2112
+#
+ sysname S1
+#
+ irf mac-address persistent timer
+ irf auto-update enable
+ undo irf link-delay
+#
+ domain default enable system
+#
+ ipv6
+#
+ undo ip http enable
+#
+ password-recovery enable
+#
+vlan 1
+#
+vlan 2 to 4
+#
+domain system
+ access-limit disable
+ state active   
+ idle-cut disable
+ self-service-url disable
+#
+user-group system
+ group-attribute allow-guest
+#
+interface NULL0
+#
+interface Vlan-interface1
+ ip address dhcp-alloc client-identifier mac Vlan-interface1
+#
+interface Vlan-interface2
+ ipv6 address 1::1/64
+#
+interface Vlan-interface3
+ ipv6 address 2::1/64
+ ospfv3 1 area 0.0.0.0
+ ospfv3 cost 20
+#
+interface Vlan-interface4
+ ipv6 address 3::1/64
+ ospfv3 1 area 0.0.0.0
+ ospfv3 cost 100
+#
+interface Ethernet1/0/1
+ port link-mode bridge
+ port access vlan 2
+#
+interface Ethernet1/0/2
+ port link-mode bridge
+#
+interface Ethernet1/0/3
+ port link-mode bridge
+#
+interface Ethernet1/0/4
+ port link-mode bridge
+#
+interface Ethernet1/0/5
+ port link-mode bridge
+#
+interface Ethernet1/0/6
+ port link-mode bridge
+#
+interface Ethernet1/0/7
+ port link-mode bridge
+#               
+interface Ethernet1/0/8
+ port link-mode bridge
+#
+interface Ethernet1/0/9
+ port link-mode bridge
+#
+interface Ethernet1/0/10
+ port link-mode bridge
+#
+interface Ethernet1/0/11
+ port link-mode bridge
+#
+interface Ethernet1/0/12
+ port link-mode bridge
+#
+interface Ethernet1/0/13
+ port link-mode bridge
+ port access vlan 3
+#
+interface Ethernet1/0/14
+ port link-mode bridge
+#
+interface Ethernet1/0/15
+ port link-mode bridge
+#
+interface Ethernet1/0/16
+ port link-mode bridge
+#
+interface Ethernet1/0/17
+ port link-mode bridge
+#
+interface Ethernet1/0/18
+ port link-mode bridge
+#
+interface Ethernet1/0/19
+ port link-mode bridge
+#
+interface Ethernet1/0/20
+ port link-mode bridge
+#
+interface Ethernet1/0/21
+ port link-mode bridge
+#
+interface Ethernet1/0/22
+ port link-mode bridge
+#               
+interface Ethernet1/0/23
+ port link-mode bridge
+#
+interface Ethernet1/0/24
+ port link-mode bridge
+ port access vlan 4
+#
+interface GigabitEthernet1/0/25
+ port link-mode bridge
+#
+interface GigabitEthernet1/0/26
+ port link-mode bridge
+#
+interface GigabitEthernet1/0/27
+ port link-mode bridge
+#
+interface GigabitEthernet1/0/28
+ port link-mode bridge
+#
+ospfv3 1
+ router-id 1.1.1.1
+ import-route direct
+#               
+ load xml-configuration
+#
+ load tr069-configuration
+#
+user-interface aux 0
+user-interface vty 0 15
+#
+return
+<S1>
+<s2>dis cu
+#
+ version 5.20, Release 2112
+#
+ sysname s2
+#
+ irf mac-address persistent timer
+ irf auto-update enable
+ undo irf link-delay
+#
+ domain default enable system
+#
+ ipv6
+#
+ undo ip http enable
+#
+ password-recovery enable
+#
+vlan 1
+#
+vlan 2 to 3
+#
+domain system
+ access-limit disable
+ state active   
+ idle-cut disable
+ self-service-url disable
+#
+user-group system
+ group-attribute allow-guest
+#
+interface NULL0
+#
+interface Vlan-interface1
+ ip address dhcp-alloc client-identifier mac Vlan-interface1
+#
+interface Vlan-interface2
+ ipv6 address 5::2/64
+#
+interface Vlan-interface3
+ ipv6 address 6::1/64
+#
+interface Ethernet1/0/1
+ port link-mode bridge
+ port access vlan 3
+#
+interface Ethernet1/0/2
+ port link-mode bridge
+#
+interface Ethernet1/0/3
+ port link-mode bridge
+#
+interface Ethernet1/0/4
+ port link-mode bridge
+#
+interface Ethernet1/0/5
+ port link-mode bridge
+#
+interface Ethernet1/0/6
+ port link-mode bridge
+#
+interface Ethernet1/0/7
+ port link-mode bridge
+#
+interface Ethernet1/0/8
+ port link-mode bridge
+#
+interface Ethernet1/0/9
+ port link-mode bridge
+#
+interface Ethernet1/0/10
+ port link-mode bridge
+#
+interface Ethernet1/0/11
+ port link-mode bridge
+#
+interface Ethernet1/0/12
+ port link-mode bridge
+#
+interface Ethernet1/0/13
+ port link-mode bridge
+#
+interface Ethernet1/0/14
+ port link-mode bridge
+#
+interface Ethernet1/0/15
+ port link-mode bridge
+#
+interface Ethernet1/0/16
+ port link-mode bridge
+#
+interface Ethernet1/0/17
+ port link-mode bridge
+#               
+interface Ethernet1/0/18
+ port link-mode bridge
+#
+interface Ethernet1/0/19
+ port link-mode bridge
+#
+interface Ethernet1/0/20
+ port link-mode bridge
+#
+interface Ethernet1/0/21
+ port link-mode bridge
+#
+interface Ethernet1/0/22
+ port link-mode bridge
+#
+interface Ethernet1/0/23
+ port link-mode bridge
+#
+interface Ethernet1/0/24
+ port link-mode bridge
+ port access vlan 2
+#
+interface GigabitEthernet1/0/25
+ port link-mode bridge
+#
+interface GigabitEthernet1/0/26
+ port link-mode bridge
+#
+interface GigabitEthernet1/0/27
+ port link-mode bridge
+#
+interface GigabitEthernet1/0/28
+ port link-mode bridge
+#
+ ipv6 route-static 1:: 64 5::1
+ ipv6 route-static 2:: 64 5::1
+ ipv6 route-static 3:: 64 5::1
+ ipv6 route-static 4:: 64 5::1
+#
+ load xml-configuration
+#
+ load tr069-configuration
+#
+user-interface aux 0
+user-interface vty 0 15
+#               
+return
+<s2>
+<r1>dis cu
+#
+ version 7.1.064, Release 0605P13
+#
+ sysname r1
+#
+ospfv3 1
+ router-id 2.2.2.2
+ import-route direct
+ import-route static
+ area 0.0.0.0
+#
+ dhcp enable
+ dhcp server always-broadcast
+#
+ dns proxy enable
+#
+ password-recovery enable
+#
+vlan 1
+#
+dhcp server ip-pool lan1
+ gateway-list 192.168.0.1
+ network 192.168.0.0 mask 255.255.254.0
+ address range 192.168.1.2 192.168.1.254
+ dns-list 192.168.0.1
+#
+controller Cellular0/0
+#
+interface Aux0
+#
+interface Serial1/0
+ ospfv3 1 area 0.0.0.0
+ ospfv3 cost 20
+ ipv6 address 4::2/64
+#
+interface Serial1/1
+#
+interface NULL0
+#
+interface GigabitEthernet0/0
+ port link-mode route
+ ospfv3 1 area 0.0.0.0
+ ospfv3 cost 100
+ ipv6 address 3::2/64
+#
+interface GigabitEthernet0/1
+ port link-mode route
+ ipv6 address 5::1/64
+#
+interface GigabitEthernet0/2
+ port link-mode route
+#
+interface GigabitEthernet0/27
+ port link-mode route
+#
+interface GigabitEthernet0/3
+ port link-mode bridge
+#
+interface GigabitEthernet0/4
+ port link-mode bridge
+#
+interface GigabitEthernet0/5
+ port link-mode bridge
+#
+interface GigabitEthernet0/6
+ port link-mode bridge
+#
+interface GigabitEthernet0/7
+ port link-mode bridge
+#              
+interface GigabitEthernet0/8
+ port link-mode bridge
+#
+interface GigabitEthernet0/9
+ port link-mode bridge
+#
+interface GigabitEthernet0/10
+ port link-mode bridge
+#
+interface GigabitEthernet0/11
+ port link-mode bridge
+#
+interface GigabitEthernet0/12
+ port link-mode bridge
+#
+interface GigabitEthernet0/13
+ port link-mode bridge
+#
+interface GigabitEthernet0/14
+ port link-mode bridge
+#
+interface GigabitEthernet0/15
+ port link-mode bridge
+#
+interface GigabitEthernet0/16
+ port link-mode bridge
+#
+interface GigabitEthernet0/17
+ port link-mode bridge
+#
+interface GigabitEthernet0/18
+ port link-mode bridge
+#
+interface GigabitEthernet0/19
+ port link-mode bridge
+#
+interface GigabitEthernet0/20
+ port link-mode bridge
+#
+interface GigabitEthernet0/21
+ port link-mode bridge
+#
+interface GigabitEthernet0/22
+ port link-mode bridge
+#
+interface GigabitEthernet0/23
+ port link-mode bridge
+#
+interface GigabitEthernet0/24
+ port link-mode bridge
+#
+interface GigabitEthernet0/25
+ port link-mode bridge
+#
+interface GigabitEthernet0/26
+ port link-mode bridge
+#
+ scheduler logfile size 16
+#
+line class aux
+ user-role network-admin
+#
+line class tty
+ user-role network-operator
+#
+line class vty
+ user-role network-operator
+#
+line aux 0     
+ user-role network-admin
+#
+line vty 0 63
+ authentication-mode scheme
+ user-role network-operator
+#
+ ipv6 route-static 6:: 64 5::2
+#
+domain system
+#
+ domain default enable system
+#
+role name level-0
+ description Predefined level-0 role
+#
+role name level-1
+ description Predefined level-1 role
+#
+role name level-2
+ description Predefined level-2 role
+#
+role name level-3
+ description Predefined level-3 role
+#
+role name level-4
+ description Predefined level-4 role
+#
+role name level-5
+ description Predefined level-5 role
+#
+role name level-6
+ description Predefined level-6 role
+#
+role name level-7
+ description Predefined level-7 role
+#
+role name level-8
+ description Predefined level-8 role
+#
+role name level-9
+ description Predefined level-9 role
+#
+role name level-10
+ description Predefined level-10 role
+#
+role name level-11
+ description Predefined level-11 role
+#
+role name level-12
+ description Predefined level-12 role
+#
+role name level-13
+ description Predefined level-13 role
+#
+role name level-14
+ description Predefined level-14 role
+#
+user-group system
+#
+local-user admin class manage
+ password hash $h$6$RkPfcompFrmJgoG+$SY9/lcMhTIanoS3pD/HpMaBrRaFDmmEXRKZIHsRo1WVNSZSkvWPV1agEAoX/UdYr8JxtsBCy4ChQdui36Ta9TQ==
+ service-type telnet http
+ authorization-attribute user-role network-admin
+#
+ ip http enable
+#
+wlan global-configuration
+ control-address disable
+#              
+wlan ap-group default-group
+#
+return
+<r1>
+<r2>dis cu
+#
+ version 7.1.064, Release 0605P13
+#
+ sysname r2
+#
+ospfv3 1
+ router-id 3.3.3.3
+ area 0.0.0.0
+#
+ dhcp enable
+ dhcp server always-broadcast
+#
+ dns proxy enable
+#
+ password-recovery enable
+#
+vlan 1
+#
+dhcp server ip-pool lan1
+ gateway-list 192.168.0.1
+ network 192.168.0.0 mask 255.255.254.0
+ address range 192.168.1.2 192.168.1.254
+ dns-list 192.168.0.1
+#              
+controller Cellular0/0
+#
+interface Aux0
+#
+interface Serial1/0
+ ospfv3 1 area 0.0.0.0
+ ospfv3 cost 20
+ ipv6 address 4::1/64
+#
+interface Serial1/1
+#
+interface NULL0
+#
+interface Vlan-interface1
+ ip address 192.168.0.1 255.255.254.0
+ tcp mss 1280
+#
+interface GigabitEthernet0/0
+ port link-mode route
+ ospfv3 1 area 0.0.0.0
+ ospfv3 cost 20
+ ipv6 address 2::2/64
+#              
+interface GigabitEthernet0/1
+ port link-mode route
+#
+interface GigabitEthernet0/2
+ port link-mode route
+#
+interface GigabitEthernet0/27
+ port link-mode route
+#
+interface GigabitEthernet0/3
+ port link-mode bridge
+#
+interface GigabitEthernet0/4
+ port link-mode bridge
+#
+interface GigabitEthernet0/5
+ port link-mode bridge
+#
+interface GigabitEthernet0/6
+ port link-mode bridge
+#
+interface GigabitEthernet0/7
+ port link-mode bridge
+#
+interface GigabitEthernet0/8
+ port link-mode bridge
+#
+interface GigabitEthernet0/9
+ port link-mode bridge
+#
+interface GigabitEthernet0/10
+ port link-mode bridge
+#
+interface GigabitEthernet0/11
+ port link-mode bridge
+#
+interface GigabitEthernet0/12
+ port link-mode bridge
+#
+interface GigabitEthernet0/13
+ port link-mode bridge
+#
+interface GigabitEthernet0/14
+ port link-mode bridge
+#
+interface GigabitEthernet0/15
+ port link-mode bridge
+#
+interface GigabitEthernet0/16
+ port link-mode bridge
+#
+interface GigabitEthernet0/17
+ port link-mode bridge
+#
+interface GigabitEthernet0/18
+ port link-mode bridge
+#
+interface GigabitEthernet0/19
+ port link-mode bridge
+#
+interface GigabitEthernet0/20
+ port link-mode bridge
+#
+interface GigabitEthernet0/21
+ port link-mode bridge
+#
+interface GigabitEthernet0/22
+ port link-mode bridge
+#              
+interface GigabitEthernet0/23
+ port link-mode bridge
+#
+interface GigabitEthernet0/24
+ port link-mode bridge
+#
+interface GigabitEthernet0/25
+ port link-mode bridge
+#
+interface GigabitEthernet0/26
+ port link-mode bridge
+#
+ scheduler logfile size 16
+#
+line class aux
+ user-role network-admin
+#
+line class tty
+ user-role network-operator
+#
+line class vty
+ user-role network-operator
+#              
+line aux 0
+ user-role network-admin
+#
+line vty 0 63
+ authentication-mode scheme
+ user-role network-operator
+#
+domain system
+#
+ domain default enable system
+#
+role name level-0
+ description Predefined level-0 role
+#
+role name level-1
+ description Predefined level-1 role
+#
+role name level-2
+ description Predefined level-2 role
+#
+role name level-3
+ description Predefined level-3 role
+#              
+role name level-4
+ description Predefined level-4 role
+#
+role name level-5
+ description Predefined level-5 role
+#
+role name level-6
+ description Predefined level-6 role
+#
+role name level-7
+ description Predefined level-7 role
+#
+role name level-8
+ description Predefined level-8 role
+#
+role name level-9
+ description Predefined level-9 role
+#
+role name level-10
+ description Predefined level-10 role
+#
+role name level-11
+ description Predefined level-11 role
+#
+role name level-12
+ description Predefined level-12 role
+#
+role name level-13
+ description Predefined level-13 role
+#
+role name level-14
+ description Predefined level-14 role
+#
+user-group system
+#
+local-user admin class manage
+ password hash $h$6$HWfD2j4JTxNUA4s/$QpAJsmrXG4/aybJa2VYq5SxC0B3mx5n3CeZSaozgcRuCjFmh36UPP/39T25Ywxxl0t5uBJU/Loz+jyHelUd17A==
+ service-type telnet http
+ authorization-attribute user-role network-admin
+#
+ ip http enable
+#
+wlan global-configuration
+ control-address disable
+#
+wlan ap-group default-group
+#
+return
+<r2>
